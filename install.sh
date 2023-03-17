@@ -10,8 +10,7 @@ fi
 
 # install requirements
 apt-get install yt_dlp -y
-python3 -m pip install PySimpleGUI 
-python3 -m pip install pyperclip
+python3 -m pip install PySimpleGUI pyperclip
 
 chmod +x ./utube.py
 mv ./utube.py /usr/bin/utube
