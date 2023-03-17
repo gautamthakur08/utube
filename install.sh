@@ -9,7 +9,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # install requirements
-apt-get install yt_dlp mpv_player -y
+apt-get install yt_dlp -y
 python3 -m pip install PySimpleGUI 
 python3 -m pip install pyperclip
 
