@@ -12,7 +12,7 @@ from threading import Thread
 
 
 copied_link = pyperclip.paste()
-if os.path.exists:
+if not os.path.exists:
     os.mkdir('videos')
 
 def download(url):
