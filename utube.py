@@ -23,7 +23,7 @@ def play_video():
     os.system("rm *")
     
 def run(url):
-    Thread(target=download, args=[url].start())
+    Thread(target=download, args=[url]).start()
     time.sleep(5)
     Thread(target=play_video).start()
     
