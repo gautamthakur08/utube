@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import re
+import os
 import sys
 import time
 import random
@@ -9,12 +10,12 @@ import subprocess
 import PySimpleGUI as sg
 from threading import Thread
 
-directory = "$HOME/Documents/videos/utube_videos/"
-os.mkdir(directory)
-os.chdir(directory
+directory = os.path.join(".", "Documents", "utube_videos")
+if not os.path.exists(directory):
+    os.mkdir(directory)
 
+os.chdir(directory)
 copied_link = pyperclip.paste()
-
 
 
 def download(url):
@@ -26,7 +27,7 @@ def play_video():
     os.system("rm *")
     
 def run(url):
-    Thread(target=download, args=[url].start()
+    Thread(target=download, args=[url].start())
     time.sleep(5)
     Thread(target=play_video).start()
     
@@ -41,8 +42,8 @@ def displlayProgress(window):
 
 # setting the theme of the application randomly
 app_themes = sg.theme_list()
-random_theme = ''.join(random.choices(themes))
-sg.theme(theme)
+random_theme = ''.join(random.choices(app_themes))
+sg.theme(random_theme)
 
 sg.set_options(font=("Courier New", 14))
 reset_btn_png = directory + '/images/reset.png'
@@ -50,7 +51,7 @@ _play_btn_png = directory + '/images/btn.png'
 
 
 layout = [
-    [sg.Text('enter link of youtube video')],
+    [sg.Text('enter link of youtube video'),],
     [
         sg.Input(
             copied_link,
@@ -60,28 +61,28 @@ layout = [
             ),
             
         sg.Button('reset',
-            image_filename = reset_btn_png
+            image_filename = reset_btn_png,
             button_color = (
                 sg.theme_background_color(),
                 sg.theme_background_color(),
-                )
+                ),
             border_width=0,
             )
-    ]
+    ],
     
     [
         sg.Button(
-            image_filename=_play_btn_png
+            image_filename=_play_btn_png,
             button_color=(
                 sg.theme_background_color(),
                 sg.theme_background_color(),
-                )
+                ),
             border_width=0
             ),
         
         sg.ProgressBar(
             max_value=50, orientation='h', size=(40,8), key='bar'
-            )
+            ),
         
         sg.Text(
             font=('Helevetica', 8),
