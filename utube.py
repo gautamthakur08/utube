@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 import re
 import os
 import sys
@@ -10,11 +8,7 @@ import subprocess
 import PySimpleGUI as sg
 from threading import Thread
 
-directory = os.path.join(".", "Documents", "utube_videos")
-if not os.path.exists(directory):
-    os.mkdir(directory)
 
-os.chdir(directory)
 copied_link = pyperclip.paste()
 
 
@@ -46,8 +40,8 @@ random_theme = ''.join(random.choices(app_themes))
 sg.theme(random_theme)
 
 sg.set_options(font=("Courier New", 14))
-reset_btn_png = directory + '/images/reset.png'
-_play_btn_png = directory + '/images/btn.png'
+reset_btn_png = 'reset.png'
+_play_btn_png = 'btn.png'
 
 
 layout = [
