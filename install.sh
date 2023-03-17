@@ -9,8 +9,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # install requirements
-apt-get install yt_dlp -y
-python3 -m pip install PySimpleGUI pyperclip
+apt-get install yt-dlp mpv -y
+python3 -m pip install PySimpleGUI pyperclip -y
 
-chmod +x ./utube.py
-mv ./utube.py /usr/bin/utube
+chmod +x ./utube.py && mv utube.py utube
