@@ -16,7 +16,7 @@ if not os.path.exists:
     os.mkdir('videos')
 
 def download(url):
-    subprocess.getoutput(f"yt_dlp {url} --format 22+18")
+    subprocess.getoutput(f"yt_dlp {url} --format 22+18 --output videos")
 
     
 def play_video():
@@ -28,6 +28,7 @@ def run(url):
     Thread(target=download, args=[url]).start()
     time.sleep(5)
     Thread(target=play_video).start()
+    
     
 def displayProgress():
     for t in range(0, 51):
