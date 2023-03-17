@@ -12,6 +12,8 @@ from threading import Thread
 
 
 copied_link = pyperclip.paste()
+os.mkdir('videos')
+os.chdir('videos')
 
 
 def download(url):
@@ -27,7 +29,7 @@ def run(url):
     time.sleep(5)
     Thread(target=play_video).start()
     
-def displlayProgress(window):
+def displayProgress(window):
     for t in range(0, 51):
         window['bar'].update(current_count=t)
         window['display'].update(f"{t/0.5}%")
